@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_launcher"
+    android:orientation="vertical">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="16dp">
+
+    <TextView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp"
+        android:text="‹"
+        android:textColor="#19C3B1"
+        android:textSize="34sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Saved Rooms"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+  </LinearLayout>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+      <TextView
+          android:id="@+id/emptyText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="80dp"
+          android:gravity="center"
+          android:text="No saved rooms yet.\nScan a room, place furniture and tap Save."
+          android:textColor="#9FB3D9"
+          android:textSize="16sp" />
+
+      <LinearLayout
+          android:id="@+id/roomList"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical" />
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>

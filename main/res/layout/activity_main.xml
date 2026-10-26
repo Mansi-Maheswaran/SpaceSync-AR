@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   TrueFit AR - AR screen layout (replaces the HelloAR layout).
+   Original sample: Copyright 2016 Google LLC, Apache License 2.0.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.google.ar.core.examples.java.helloar.HelloArActivity">
+
+  <android.opengl.GLSurfaceView
+      android:id="@+id/surfaceview"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_gravity="top" />
+
+  <!-- Top status panel: verdict badge + instruction / distance text -->
+  <LinearLayout
+      android:id="@+id/statusPanel"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_marginStart="14dp"
+      android:layout_marginTop="14dp"
+      android:layout_marginEnd="74dp"
+      android:background="@drawable/bg_panel"
+      android:orientation="vertical"
+      android:padding="14dp">
+
+    <TextView
+        android:id="@+id/verdictBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="14dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="5dp"
+        android:text="CAN BUY"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/distanceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Move your phone slowly to scan the floor"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/scanHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text=""
+        android:textColor="#19C3B1"
+        android:textSize="13sp"
+        android:visibility="gone" />
+  </LinearLayout>
+
+  <ImageButton
+      android:id="@+id/settings_button"
+      android:layout_width="52dp"
+      android:layout_height="52dp"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentEnd="true"
+      android:layout_marginTop="14dp"
+      android:layout_marginEnd="14dp"
+      android:background="@drawable/bg_circle_btn"
+      android:src="@drawable/ic_settings" />
+
+  <!-- Bottom action bar -->
+  <LinearLayout
+      android:id="@+id/bottomBar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginStart="12dp"
+      android:layout_marginEnd="12dp"
+      android:layout_marginBottom="18dp"
+      android:orientation="horizontal"
+      android:visibility="gone">
+
+    <TextView
+        android:id="@+id/btnMeasure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="📏\nMeasure"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btnFitCheck"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="🛋\nFit Check"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btnSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="💾\nSave"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btnReset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="↺\nReset"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+  </LinearLayout>
+
+  <!-- First thing shown after "New Room Scan": choose Measure or Fit Check -->
+  <LinearLayout
+      android:id="@+id/modeChooser"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:layout_marginStart="24dp"
+      android:layout_marginEnd="24dp"
+      android:background="@drawable/bg_card"
+      android:orientation="vertical"
+      android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What do you want to do?"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="14dp"
+        android:text="Scan the floor first so the white dots appear."
+        android:textColor="#9FB3D9"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/chooseMeasure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp"
+        android:text="📏   Measure\nTap two points to get the distance"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/chooseFitCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp"
+        android:text="🛋   Fit Check\nTest if a piece of furniture fits"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+  </LinearLayout>
+
+</RelativeLayout>
