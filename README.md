@@ -1,4 +1,4 @@
-# TrueFit AR - Dimension-Verified Furniture Fit Checker
+# SpaceSync-AR - Dimension-Verified Furniture Fit Checker
 
 An Android augmented reality (AR) app that helps you decide **before you buy**
 whether a piece of furniture will fit in your room.
